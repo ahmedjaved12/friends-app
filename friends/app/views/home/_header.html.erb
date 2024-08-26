@@ -6,6 +6,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
+        
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active text-white nav-hover" %>
+        </li>
         <li class="nav-item">
           <%= link_to "About", home_about_path, class: "nav-link active text-white nav-hover" %>
         </li>
@@ -16,17 +21,25 @@
           <%= link_to "Add Friend", new_friend_path, class: "nav-link active text-white nav-hover" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Sign In", new_user_session_path, class: "nav-link active text-white nav-hover" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link active text-white nav-hover" %>
-        </li>
-        <li class="nav-item">
           <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link active text-white nav-hover" %>
         </li>
         <li class="nav-item">
           <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "nav-link active text-white nav-hover" %>
         </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class: "nav-link active text-white nav-hover" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "About", home_about_path, class: "nav-link active text-white nav-hover" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign In", new_user_session_path, class: "nav-link active text-white nav-hover" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link active text-white nav-hover" %>
+        </li>
+        <% end %>
       </ul>
     </div>
   </div>
